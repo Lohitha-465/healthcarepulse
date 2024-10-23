@@ -54,7 +54,7 @@ export const AppointmentForm = ({
   });
 
   const onSubmit = async (
-    values: z.infer<typeof AppointmentFormValidation>
+    values: z.infer<typeof AppointmentFormValidation>,
   ) => {
     setIsLoading(true);
 
@@ -64,7 +64,7 @@ export const AppointmentForm = ({
         status = "scheduled";
         break;
       case "cancel":
-        status = "cancelled";
+        status = "canceled";
         break;
       default:
         status = "pending";
@@ -87,7 +87,7 @@ export const AppointmentForm = ({
         if (newAppointment) {
           form.reset();
           router.push(
-            `/patients/${userId}/new-appointment/success?appointmentId=${newAppointment.$id}`
+            `/patients/${userId}/new-appointment/success?appointmentId=${newAppointment.$id}`,
           );
         }
       } else {
